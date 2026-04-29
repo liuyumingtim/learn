@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新手實用韓語：餐廳與旅遊篇</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9f9f6; /* 低飽和度的大地色系背景 */
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #4a4a4a;
+            font-weight: 500;
+        }
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #8c8c8c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #5c5c5c;
+        }
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .card {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .card:last-child {
+            border-bottom: none;
+        }
+        .korean {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .pronunciation {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        .chinese {
+            font-size: 16px;
+            color: #e67e22;
+        }
+        .hidden {
+            display: none;
+        }
+        .play-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+        .play-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>新手實用韓語：餐廳與旅遊篇</h1>
+    
+    <div class="controls">
+        <button class="btn" onclick="toggleTranslation()">顯示 / 隱藏中文</button>
+    </div>
+
+    <!-- 餐廳與點餐篇 -->
+    <div class="section">
+        <h2>☕ 餐廳與點餐 (Restaurant & Cafe)</h2>
+        
+        <div class="card">
+            <div>
+                <div class="korean">아이스 아메리카노 한 잔 주세요.</div>
+                <div class="pronunciation">[ a-i-seu a-me-ri-ca-no han jan ju-se-yo ]</div>
+                <div class="chinese translation">請給我一杯冰美式咖啡。</div>
+            </div>
+            <button class="play-btn" onclick="speak('아이스 아메리카노 한 잔 주세요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">메뉴판 주세요.</div>
+                <div class="pronunciation">[ me-nyu-pan ju-se-yo ]</div>
+                <div class="chinese translation">請給我菜單。</div>
+            </div>
+            <button class="play-btn" onclick="speak('메뉴판 주세요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">이거 하나 주세요.</div>
+                <div class="pronunciation">[ i-geo ha-na ju-se-yo ]</div>
+                <div class="chinese translation">請給我一個這個。（指著菜單用這句最無敵）</div>
+            </div>
+            <button class="play-btn" onclick="speak('이거 하나 주세요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">화장실이 어디예요?</div>
+                <div class="pronunciation">[ hwa-jang-sil-i eo-di-ye-yo? ]</div>
+                <div class="chinese translation">洗手間在哪裡？</div>
+            </div>
+            <button class="play-btn" onclick="speak('화장실이 어디예요?')">🔊</button>
+        </div>
+    </div>
+
+    <!-- 旅遊與交通篇 -->
+    <div class="section">
+        <h2>✈️ 旅遊與交通 (Travel & Transport)</h2>
+        
+        <div class="card">
+            <div>
+                <div class="korean">체크인 부탁드립니다.</div>
+                <div class="pronunciation">[ che-keu-in bu-tak-deu-rim-ni-da ]</div>
+                <div class="chinese translation">麻煩您，我要辦理入住 (Check-in)。</div>
+            </div>
+            <button class="play-btn" onclick="speak('체크인 부탁드립니다.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">짐을 맡겨도 될까요?</div>
+                <div class="pronunciation">[ jim-eul mat-gyeo-do doel-kka-yo? ]</div>
+                <div class="chinese translation">我可以寄放行李嗎？</div>
+            </div>
+            <button class="play-btn" onclick="speak('짐을 맡겨도 될까요?')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">공항으로 가주세요.</div>
+                <div class="pronunciation">[ gong-hang-eu-ro ga-ju-se-yo ]</div>
+                <div class="chinese translation">請到機場。（搭計程車時非常實用）</div>
+            </div>
+            <button class="play-btn" onclick="speak('공항으로 가주세요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">도와주세요.</div>
+                <div class="pronunciation">[ do-wa-ju-se-yo ]</div>
+                <div class="chinese translation">請幫幫我。（遇到任何突發狀況時的求救用語）</div>
+            </div>
+            <button class="play-btn" onclick="speak('도와주세요.')">🔊</button>
+        </div>
+    </div>
+
+    <script>
+        // 發音功能 (使用瀏覽器內建 Web Speech API)
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ko-KR'; // 設定語言為韓文
+                utterance.rate = 0.85;    // 放慢一點語速，適合新手
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("抱歉，您的瀏覽器不支援語音功能。請嘗試使用 Chrome 或 Safari。");
+            }
+        }
+
+        // 切換中文顯示/隱藏功能
+        function toggleTranslation() {
+            const translations = document.querySelectorAll('.translation');
+            translations.forEach(el => {
+                el.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

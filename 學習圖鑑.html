@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實用韓語學習：發音與日常對話</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f0; /* 更舒適的米灰色背景 */
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4a4a4a;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .controls {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background-color: #7f8c8d;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: #34495e;
+        }
+        
+        /* 40音面板樣式 */
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .char-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .char-box:hover {
+            background: #ecf0f1;
+            transform: translateY(-2px);
+            border-color: #bdc3c7;
+        }
+        .char-ko {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2980b9;
+        }
+        .char-ro {
+            font-size: 12px;
+            color: #95a5a6;
+            margin-top: 5px;
+        }
+
+        /* 句子卡片樣式 */
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .card {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .card:last-child {
+            border-bottom: none;
+        }
+        .korean {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+        .pronunciation {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 6px;
+        }
+        .chinese {
+            font-size: 16px;
+            color: #d35400; /* 更柔和的橘色 */
+        }
+        .hidden {
+            display: none;
+        }
+        .play-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 15px;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+        }
+        .play-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>實用韓語學習：發音與日常對話</h1>
+    
+    <div class="controls">
+        <button class="btn" onclick="toggleTranslation()">👁️ 顯示 / 隱藏中文翻譯</button>
+    </div>
+
+    <!-- 40音發音複習 -->
+    <div class="section">
+        <h2>🔠 基礎發音複習 (點擊聽發音)</h2>
+        <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 15px;">基本母音 (Vowels)</p>
+        <div class="alphabet-grid">
+            <div class="char-box" onclick="speak('아')"><div class="char-ko">아</div><div class="char-ro">a</div></div>
+            <div class="char-box" onclick="speak('야')"><div class="char-ko">야</div><div class="char-ro">ya</div></div>
+            <div class="char-box" onclick="speak('어')"><div class="char-ko">어</div><div class="char-ro">eo</div></div>
+            <div class="char-box" onclick="speak('여')"><div class="char-ko">여</div><div class="char-ro">yeo</div></div>
+            <div class="char-box" onclick="speak('오')"><div class="char-ko">오</div><div class="char-ro">o</div></div>
+            <div class="char-box" onclick="speak('요')"><div class="char-ko">요</div><div class="char-ro">yo</div></div>
+            <div class="char-box" onclick="speak('우')"><div class="char-ko">우</div><div class="char-ro">u</div></div>
+            <div class="char-box" onclick="speak('유')"><div class="char-ko">유</div><div class="char-ro">yu</div></div>
+            <div class="char-box" onclick="speak('으')"><div class="char-ko">으</div><div class="char-ro">eu</div></div>
+            <div class="char-box" onclick="speak('이')"><div class="char-ko">이</div><div class="char-ro">i</div></div>
+        </div>
+
+        <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 15px; margin-top: 20px;">基本子音配母音 (Consonants + a)</p>
+        <div class="alphabet-grid">
+            <div class="char-box" onclick="speak('가')"><div class="char-ko">가</div><div class="char-ro">ga</div></div>
+            <div class="char-box" onclick="speak('나')"><div class="char-ko">나</div><div class="char-ro">na</div></div>
+            <div class="char-box" onclick="speak('다')"><div class="char-ko">다</div><div class="char-ro">da</div></div>
+            <div class="char-box" onclick="speak('라')"><div class="char-ko">라</div><div class="char-ro">ra</div></div>
+            <div class="char-box" onclick="speak('마')"><div class="char-ko">마</div><div class="char-ro">ma</div></div>
+            <div class="char-box" onclick="speak('바')"><div class="char-ko">바</div><div class="char-ro">ba</div></div>
+            <div class="char-box" onclick="speak('사')"><div class="char-ko">사</div><div class="char-ro">sa</div></div>
+            <div class="char-box" onclick="speak('자')"><div class="char-ko">자</div><div class="char-ro">ja</div></div>
+            <div class="char-box" onclick="speak('차')"><div class="char-ko">차</div><div class="char-ro">cha</div></div>
+            <div class="char-box" onclick="speak('카')"><div class="char-ko">카</div><div class="char-ro">ka</div></div>
+            <div class="char-box" onclick="speak('타')"><div class="char-ko">타</div><div class="char-ro">ta</div></div>
+            <div class="char-box" onclick="speak('파')"><div class="char-ko">파</div><div class="char-ro">pa</div></div>
+            <div class="char-box" onclick="speak('하')"><div class="char-ko">하</div><div class="char-ro">ha</div></div>
+        </div>
+    </div>
+
+    <!-- 日常作息篇 -->
+    <div class="section">
+        <h2>☕ 日常作息與習慣 (Daily Life & Routine)</h2>
+        
+        <div class="card">
+            <div>
+                <div class="korean">저는 오전 10시에 커피를 마셔요.</div>
+                <div class="pronunciation">[ jeo-neun o-jeon yeol-si-e keo-pi-reul ma-syeo-yo ]</div>
+                <div class="chinese translation">我早上 10 點喝咖啡。</div>
+            </div>
+            <button class="play-btn" onclick="speak('저는 오전 10시에 커피를 마셔요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">퇴근하고 헬스장에 가요.</div>
+                <div class="pronunciation">[ toe-geun-ha-go hel-seu-jang-e ga-yo ]</div>
+                <div class="chinese translation">我下班後去健身房。</div>
+            </div>
+            <button class="play-btn" onclick="speak('퇴근하고 헬스장에 가요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">오늘은 하체 운동을 하는 날이에요.</div>
+                <div class="pronunciation">[ o-neul-eun ha-che un-dong-eul ha-neun nal-i-e-yo ]</div>
+                <div class="chinese translation">今天是練腿（下半身訓練）的日子。</div>
+            </div>
+            <button class="play-btn" onclick="speak('오늘은 하체 운동을 하는 날이에요.')">🔊</button>
+        </div>
+    </div>
+
+    <!-- 個人介紹與風格篇 -->
+    <div class="section">
+        <h2>👕 個人介紹與風格 (Introduction & Style)</h2>
+        
+        <div class="card">
+            <div>
+                <div class="korean">저는 미니멀한 스타일을 좋아해요.</div>
+                <div class="pronunciation">[ jeo-neun mi-ni-meol-han seu-ta-il-eul jo-a-hae-yo ]</div>
+                <div class="chinese translation">我喜歡極簡風格 (Minimal/Clean Fit)。</div>
+            </div>
+            <button class="play-btn" onclick="speak('저는 미니멀한 스타일을 좋아해요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">제 의류 브랜드 SAMMUU입니다.</div>
+                <div class="pronunciation">[ je ui-ryu beu-raen-deu sa-mu-im-ni-da ]</div>
+                <div class="chinese translation">這是我的服飾品牌 SAMMUU。</div>
+            </div>
+            <button class="play-btn" onclick="speak('제 의류 브랜드 사무입니다.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">더 큰 사이즈 있어요?</div>
+                <div class="pronunciation">[ deo keun sa-i-jeu it-seo-yo? ]</div>
+                <div class="chinese translation">請問有更大的尺寸嗎？</div>
+            </div>
+            <button class="play-btn" onclick="speak('더 큰 사이즈 있어요?')">🔊</button>
+        </div>
+    </div>
+
+    <!-- 旅遊導引與生存篇 -->
+    <div class="section">
+        <h2>✈️ 旅遊導引與生存 (Travel & Guiding)</h2>
+        
+        <div class="card">
+            <div>
+                <div class="korean">여기로 모여주세요.</div>
+                <div class="pronunciation">[ yeo-gi-ro mo-yeo-ju-se-yo ]</div>
+                <div class="chinese translation">請往這邊集合。（帶領朋友或團員時必備）</div>
+            </div>
+            <button class="play-btn" onclick="speak('여기로 모여주세요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">여권을 준비해 주세요.</div>
+                <div class="pronunciation">[ yeo-gwon-eul jun-bi-hae ju-se-yo ]</div>
+                <div class="chinese translation">請準備好護照。</div>
+            </div>
+            <button class="play-btn" onclick="speak('여권을 준비해 주세요.')">🔊</button>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="korean">잠시만 기다려주세요.</div>
+                <div class="pronunciation">[ jam-si-man gi-da-ryeo-ju-se-yo ]</div>
+                <div class="chinese translation">請稍等一下。</div>
+            </div>
+            <button class="play-btn" onclick="speak('잠시만 기다려주세요.')">🔊</button>
+        </div>
+        
+        <div class="card">
+            <div>
+                <div class="korean">사진 좀 찍어주시겠어요?</div>
+                <div class="pronunciation">[ sa-jin jom jji-geo-ju-si-get-seo-yo? ]</div>
+                <div class="chinese translation">可以幫我拍張照嗎？</div>
+            </div>
+            <button class="play-btn" onclick="speak('사진 좀 찍어주시겠어요?')">🔊</button>
+        </div>
+    </div>
+
+    <script>
+        // 發音功能 (使用瀏覽器內建 Web Speech API)
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                // 先取消正在播放的語音，避免重疊
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ko-KR'; // 設定語言為韓文
+                utterance.rate = 0.85;    // 放慢語速適合學習
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("抱歉，您的瀏覽器不支援語音功能。請嘗試使用 Chrome 或 Safari。");
+            }
+        }
+
+        // 切換中文顯示/隱藏功能
+        function toggleTranslation() {
+            const translations = document.querySelectorAll('.translation');
+            translations.forEach(el => {
+                el.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
